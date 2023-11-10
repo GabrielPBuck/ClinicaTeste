@@ -1,0 +1,39 @@
+﻿@model ClinicaTeste.Models.Paciente
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Paciente</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            <label>Nome do Paciente</label>
+@*             @Html.DisplayNameFor(model => model.Nome)
+ *@        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            <label>Sobrenome do Paciente</label>
+@*             @Html.DisplayNameFor(model => model.Sobrenome)
+ *@        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CPF)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdPaciente">Editar</a> |
+    <a asp-action="Index">Voltar a Lista</a>
+</div>

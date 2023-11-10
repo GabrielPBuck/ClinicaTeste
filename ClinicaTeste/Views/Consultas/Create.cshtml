@@ -1,0 +1,62 @@
+﻿@model ClinicaTeste.Models.ConsultaModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cadastrar</h1>
+
+<h4>Consulta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label>Nome do Paciente</label>
+            <select name="IdPaciente" class="form-control">
+                @foreach (var item in Model.ListaPacientes)
+                {
+                    <option value="@item.IdPaciente">@item.Nome</option>
+                }
+            </select>
+            </div>
+            <p></p>
+            <div class="form-group">         
+                <label>Nome do Médico</label>
+                <select name="IdMedico" class="form-control">
+                    @foreach (var item in Model.ListaMedicos)
+                    {
+                        <option value="@item.IdMedico">@item.NomeMedico</option>
+                    }
+                </select>
+            </div>
+            <p></p>
+            <hr />
+            <p></p>
+            <div class="form-group">
+                <label asp-for="DataConsulta" class="control-label">Data da Consulta</label>
+                <input asp-for="DataConsulta" class="form-control" />
+                <span asp-validation-for="DataConsulta" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <label asp-for="FichaMedica" class="control-label">Ficha Médica</label>
+                <input asp-for="FichaMedica" class="form-control" />
+                <span asp-validation-for="FichaMedica" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<p></p>
+<div>
+    <a asp-action="Index">Voltar a Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

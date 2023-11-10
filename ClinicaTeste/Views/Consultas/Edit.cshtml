@@ -1,0 +1,56 @@
+﻿@model ClinicaTeste.Models.Consulta
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar</h1>
+
+<h4>Consulta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdConsulta" />
+            <div class="form-group">
+                <label asp-for="IdPaciente" class="control-label">ID do Paciente</label>
+                <input asp-for="IdPaciente" class="form-control" />
+                <span asp-validation-for="IdPaciente" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <label asp-for="IdMedico" class="control-label">ID do Médico</label>
+                <input asp-for="IdMedico" class="form-control" />
+                <span asp-validation-for="IdMedico" class="text-danger"></span>
+            </div>
+            <p></p>
+            <hr />
+            <p></p>
+            <div class="form-group">
+                <label asp-for="DataConsulta" class="control-label">Data da Consulta</label>
+                <input asp-for="DataConsulta" class="form-control" />
+                <span asp-validation-for="DataConsulta" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <label asp-for="FichaMedica" class="control-label">Ficha Médica</label>
+                <input asp-for="FichaMedica" class="form-control" />
+                <span asp-validation-for="FichaMedica" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<p></p>
+<div>
+    <a asp-action="Index">Voltar a Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

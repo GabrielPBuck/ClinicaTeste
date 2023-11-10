@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ClinicaTeste.Models.Medico>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cadastro de Médicos</h1>
+<hr />
+<p>
+    <a asp-action="Create">Cadastrar Médico</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Nome do Médico</label>
+                @* @Html.DisplayNameFor(model => model.NomeMedico) *@
+            </th>
+            <th>
+                <label>CRM do Médico</label>
+                @* @Html.DisplayNameFor(model => model.CRM) *@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeMedico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CRM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidade)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMedico">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMedico">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMedico">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
